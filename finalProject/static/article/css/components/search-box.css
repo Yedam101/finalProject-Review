@@ -1,0 +1,40 @@
+.search-box {
+  display: flex;
+  justify-content: center;
+  width: 85%;
+  align-items: center;
+  box-shadow: 0 5px 10px #0002;
+  border-radius: 35px;
+  background-color: white;
+  transition: 0.2s ease-in-out;
+  margin-bottom: 50px;
+}
+.search-box input {
+  padding: 20px;
+  height: 70px;
+  width: 100%;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: black;
+  font-size: 20px;
+}
+.search-box button {
+  height: 60px;
+  width: 60px;
+  font-size: 25px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.5);
+  margin-right: 5px;
+  cursor: pointer;
+}
+.search-box:hover {
+  transform: scale(1.1);
+}
+
+.search-box:focus-within {
+  transform: scale(1.1);
+}

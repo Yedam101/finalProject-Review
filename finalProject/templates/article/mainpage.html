@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="{% static 'article/css/style.css' %}" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <title>News</title>
+  </head>
+  <body>
+    <div class="" id="overlay">
+      <div class="header">
+        <h1><i class="fa-solid fa-circle-question"></i></h1>
+      </div>
+      <div class="upper">{%include 'article/main.html'%}</div>
+      <div class="lower">
+        <h1>오늘의 이슈</h1>
+        <div class="news-section">{% include 'article/newsList.html'%}</div>
+      </div>
+      {%include 'article/footer.html'%}
+    </div>
+    {%include 'article/modal.html'%}
+    <div class="greeting">
+      <form class="greeting-form">
+        <div class="greeting-header">
+          <div class="title">어서오세요!!</div>
+          <button type="submit" class="greeting-close">&times;</button>
+        </div>
+        <div class="greeting-body">
+          <div class="text">
+            링크를 통해 뉴스 기사의 신뢰도를 알아보는 서비스 입니다.
+          </div>
+        </div>
+        <input type="checkbox" id="checkbox" />
+        <label for="checkbox">다시 보지 않기</label>
+      </form>
+    </div>
+    <script src="{% static 'article/js/result.js'%}"></script>
+    <script src="{% static 'article/js/modal.js'%}"></script>
+    <script src="{% static 'article/js/greeting.js'%}"></script>
+    <script
+      src="https://kit.fontawesome.com/218181cbb1.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

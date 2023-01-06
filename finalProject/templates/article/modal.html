@@ -1,0 +1,68 @@
+{% for article in articles%}
+<div class="modal" id="news-{{article.articleid}}">
+  <div class="modal-header">
+    <div class="modal-header__left">
+      <div class="small-text">
+        <div>
+            <span class="logo"
+              ><img
+                src="{{article.logo}}"
+                style="height: 60px; margin-right: 10px"
+            /></span>
+            <span class="category">{{article.category}}</span>
+        </div>  
+        <div class="title">{{article.title}}</div>
+      </div>
+    
+      <div class="bigger-text">
+        
+        <div>
+          <span class="reporter">{{article.reporter}} 기자 | </span>
+          <span class="time"> {{article.publication_time}}</span>
+          <a href="{{article.link}}" target="_blank"><button class="link-button">본문 링크</button></a>
+        </div>
+      </div>
+      
+    </div>
+    <div class="modal-header__right">
+    </div>
+    <button data-close-button class="close-button">&times;</button>
+  </div>
+  <div class="modal-body">
+    <div class="modal-body__upper">
+    <div class="crawling-time">분석 시간 : {{article.crawling_time}}</div>
+  
+    <div class="modal-img">
+      {% comment %} <h3>&#60;뉴스 키워드&#62;</h3> {% endcomment %}
+      <img
+        src="/static/media/article/wcimg{{article.articleid}}.png"
+        style="
+          max-height: 430px;
+          border-radius: 10px;
+          margin-left:-100px;
+        "
+      />
+      
+    </div>
+      <div data-result class="modal-score">
+        <div class="modal-text">
+          <h5>낚시성 기사인지 검사합니다. 점수가 높을수록 낚시성일 가능성이 낮습니다.</h5>
+          <h2></h2>
+        </div>
+        <div class="progressbar" role="progressbar" aria-valuenow="{{article.result|floatformat:"0"}}" aria-valuemin="0" aria-valuemax="100" style="--value: {{article.result|floatformat:"0"}}"></div>
+        <div class="modal-num">
+        </div>
+      </div>
+    </div>
+    <ul class="category-news-lists">
+      {%for news in article.category_news%}
+      <li>
+        <a href="{{news.link}}" target="_blank"><h2>{{news.title}}</h2><h6>{{news.press}}</h6></a>
+      </li>
+      {%endfor%}
+    </ul>
+    </div>
+  </div>
+
+  {% endfor %}
+

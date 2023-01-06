@@ -1,0 +1,39 @@
+<ul class="news-lists">
+  {% for article in articles%}
+  <li data-modal-target="#news-{{article.articleid}}" class="news-list">
+    <div class="news-list__upper">
+      <div class="news-list__left">
+        <div class="news-list__info">
+          <span>
+            <img
+              class="logo"
+              src="{{article.logo}}"
+              alt=""
+              style="height: 40px; margin-right: 10px"
+          /></span>
+          <span class="category">{{article.category}}</span>
+        </div>
+        <span class="news-list__title">{{article.title}}</span>
+      </div>
+      {%if article.img != "video_news" %}
+      <div class="news-list__right">
+        <img
+          src="{{article.img}}"
+          alt=""
+          style="
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 5px 5px 20px -5px gray;
+          "
+        />
+      </div>
+      {%else%}
+      <div class="news-list__right">영상 뉴스</div>
+      {%endif%}
+    </div>
+    <div class="news-list__lower">클릭해서 결과보기 &rarr;</div>
+  </li>
+  {% endfor %}
+</ul>

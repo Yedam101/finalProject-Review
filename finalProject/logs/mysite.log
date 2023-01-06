@@ -1,0 +1,40 @@
+2022-11-14 16:14:41,942 [ERROR] django.request: Internal Server Error: /article/viewtest/
+Traceback (most recent call last):
+  File "/mnt/c/venvs/final/vfinal/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/venvs/final/vfinal/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/venvs/final/wslFinal/finalProject/article/views.py", line 59, in viewtest
+    result = pred.modelPredictFunc(temp.title, content)
+  File "/mnt/c/venvs/final/wslFinal/finalProject/article/ditAPI/pred.py", line 170, in modelPredictFunc
+    soft_output, all_fold_logits = test_ensemble_main(args, title, content, ensemble=method)
+  File "/mnt/c/venvs/final/wslFinal/finalProject/article/ditAPI/pred.py", line 122, in test_ensemble_main
+    model = torch.load(dirTmp, map_location=device)
+  File "/mnt/c/venvs/final/vfinal/lib/python3.10/site-packages/torch/serialization.py", line 771, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/mnt/c/venvs/final/vfinal/lib/python3.10/site-packages/torch/serialization.py", line 270, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/mnt/c/venvs/final/vfinal/lib/python3.10/site-packages/torch/serialization.py", line 251, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/c/venvs/final/wslFinal/finalProject/article/ditAPI/model.pt'
+2022-11-14 16:47:00,840 [ERROR] django.request: Internal Server Error: /article/viewtest/
+Traceback (most recent call last):
+  File "/mnt/c/venvs/final/vfinal/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/mnt/c/venvs/final/vfinal/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/mnt/c/venvs/final/wslFinal/finalProject/article/views.py", line 67, in viewtest
+    temp = datilyCrawling()
+  File "/mnt/c/venvs/final/wslFinal/finalProject/article/views.py", line 50, in datilyCrawling
+    test = tools.daily_news_grab()
+  File "/mnt/c/venvs/final/wslFinal/finalProject/article/ditAPI/tools.py", line 110, in daily_news_grab
+    articles[i]["logo"]=articles_info[i]["logo"]
+TypeError: 'NoneType' object does not support item assignment
+2022-11-15 11:23:46,519 [WARNING] django.request: Not Found: /
+2022-11-15 11:37:13,555 [WARNING] django.request: Not Found: /
+2022-12-20 16:29:59,859 [WARNING] django.request: Not Found: /article/newstest/
+2022-12-30 14:24:07,609 [WARNING] django.request: Not Found: /home/
+2022-12-30 14:24:44,396 [WARNING] django.request: Not Found: /articletest
+2022-12-30 14:24:44,398 [WARNING] django.request: Not Found: /article2
+2022-12-30 14:24:44,400 [WARNING] django.request: Not Found: /
+2022-12-30 14:25:56,196 [WARNING] django.request: Not Found: /newsview

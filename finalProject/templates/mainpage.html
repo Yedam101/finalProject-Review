@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="{% static 'article/css/style.css' %}" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="upper">
+      <div class="header">
+        <h1 class>가짜뉴스일까?</h1>
+      </div>
+      <div class="main">
+        <form action="" class="search-box">
+          <input type="text" required placeholder="링크를 넣어 주세요!" />
+          <button type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <div class="result">
+          <div class="loading">
+            <div class="dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="bars">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <button><i class="fa-solid fa-x"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="lower">
+      <h1>sdfsdf</h1>
+      <div class="news-section">
+        <ul class="news-lists">
+          <l1 class="news-list">
+            <div class="logo">
+              <img
+                src="https://t1.daumcdn.net/media/news/news2016/cp/cp_newsis.gif"
+                alt=""
+              />
+            </div>
+            <div class="news-list__contents">
+              <div class="news_info">
+                <img
+                  class="news_info_img"
+                  src="https://img1.daumcdn.net/thumb/S96x60ht.u/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fnews%2F202211%2F09%2Fnewsis%2F20221109155900038fcmv.jpg&scode=media"
+                  alt=""
+                />
+                <span class="news_info_text"></span>
+              </div>
+              <div class="validation"></div>
+            </div>
+            <div class="news-links">
+              <button></button>
+              <button></button>
+            </div>
+          </l1>
+          <l1 class="news-list">
+            <div class="news-list__contents">
+              <div class="validation"></div>
+            </div>
+          </l1>
+          <l1 class="news-list">
+            <div class="news-list__contents">
+              <div class="validation"></div>
+            </div>
+          </l1>
+          <l1 class="news-list">
+            <div class="news-list__contents">
+              <div class="validation"></div>
+            </div>
+          </l1>
+          <l1 class="news-list">
+            <div class="news-list__contents">
+              <div class="validation"></div>
+            </div>
+          </l1>
+          <l1 class="news-list">
+            <div class="news-list__contents">
+              <div class="validation"></div>
+            </div>
+          </l1>
+          <l1 class="news-list">
+            <div class="news-list__contents">
+              <div class="validation"></div>
+            </div>
+          </l1>
+          <l1 class="news-list">
+            <div class="news-list__contents">
+              <div class="validation"></div>
+            </div>
+          </l1>
+          <l1 class="news-list">
+            <div class="news-list__contents">
+              <div class="validation"></div>
+            </div>
+          </l1>
+          <l1 class="news-list">
+            <div class="news-list__contents">
+              <div class="validation"></div>
+            </div>
+          </l1>
+        </ul>
+      </div>
+    </div>
+    <script src="{% static 'article/js/result.js'%}"></script>
+    <script
+      src="https://kit.fontawesome.com/218181cbb1.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="{% static 'article/js/news.js'%}"></script>
+  </body>
+</html>

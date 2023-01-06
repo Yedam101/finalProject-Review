@@ -1,0 +1,226 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 10px;
+  z-index: 10;
+  background-color: white;
+  transition: 200ms ease-in-out;
+  width: 80%;
+  height: 80%;
+  padding: 50px;
+  overflow: hidden;
+}
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+.modal-header__left {
+  width: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.modal-header__left div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.modal-header__right {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  height: 100%;
+  padding: 20px;
+  justify-content: space-between;
+}
+.crawling-time {
+  position: absolute;
+  font-size: 20px;
+  font-weight: 600;
+  opacity: 0.6;
+  top: 20px;
+  left: 0px;
+}
+.modal-header .small-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.modal-header .small-text > div > span {
+  font-size: 25px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.6);
+  margin-right: 10px;
+}
+.modal-header .title {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: start;
+}
+.modal-header .bigger-text {
+  font-size: 20px;
+  font-weight: 600;
+  opacity: 0.6;
+}
+.modal-header .bigger-text span {
+  margin-right: 10px;
+}
+
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 40px;
+  font-weight: bold;
+  position: absolute;
+  top: -40px;
+  right: -25px;
+}
+
+.modal-body__upper {
+  margin-top: 280px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 15px;
+  margin-bottom: 50px;
+}
+.modal-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 10px 15px;
+  overflow-y: scroll;
+  height: 75%;
+}
+#overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  z-index: 2;
+  align-items: center;
+}
+
+#overlay.active {
+  filter: blur(15px);
+  pointer-events: none;
+}
+.link-button {
+  font-size: 18px;
+  width: 100px;
+  height: 40px;
+  margin: 10px;
+  outline: none;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.modal-num {
+  font-size: 100px;
+  font-weight: 700;
+}
+.modal-num span:last-child {
+  font-size: 60px;
+  font-weight: 500;
+  padding-bottom: 5px;
+  font-weight: 700;
+}
+.modal-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.modal-text h2 {
+  font-size: 50px;
+  font-weight: 500;
+  padding-bottom: 5px;
+  font-weight: 800;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+.modal-text h5 {
+  position: absolute;
+  text-align: start;
+  font-size: 25px;
+  opacity: 0.6;
+  top: -100px;
+  left: 0px;
+  line-height: 30px;
+}
+
+.modal-score {
+  position: relative;
+  margin-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.modal-img {
+  margin-top: 200px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.modal-img h3 {
+  position: absolute;
+  top: 10px;
+  left: 80px;
+  font-size: 20px;
+  font-weight: bold;
+  opacity: 0.5;
+}
+.small-text .title {
+  margin: 30px 0px;
+}
+.category-news-lists {
+  margin-left: 100px;
+}
+
+.category-news-lists > li > a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.category-news-lists > li > a > h2 {
+  font-size: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  margin: 10px;
+}
+
+.category-news-lists > li > a > h6 {
+  font-size: 15px;
+}
+.category-news-lists > li > a {
+  display: flex;
+}
