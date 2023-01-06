@@ -1,24 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.core import serializers
-from article.ditAPI import tools, modelPredictScore, pred, wordcloud # ㅇㅖ담님 짱 good
-import json
+from article.ditAPI import tools, modelPredictScore, pred, wordcloud
 from django.utils import timezone
 from article.models import Article
 from django.http import JsonResponse
 from django.db.models import Q
 
-import os
-from django.conf import settings
 from django.shortcuts import render
 from django.templatetags.static import static
 
 
 
-# ------------------------- Don't touch Code
+# ------------------------- Backend Part
 
 
-def index(request):
+def index(request): # 서버연결 확인용
     return HttpResponse("서버연결2")
 
 # url to Crawling
@@ -27,13 +23,13 @@ def InputUrlCrawling(inputUrl):
     today = timezone.now()
     print('input temp : ', temp)
 
-
-    # titleulr = Article.objects.filter(articleid__gt=1).values('title', 'link')
-    # print('titleulr : ', titleulr)
-    # 제목temp["title"]과 링크inputUrl DB에 있는 데이터 조회해서 
-    # 같은 값 있는지 체크
-    # 있으면 그 데이터 그대로 리턴
-    # 없으면 세이브
+    ''' 
+    titleulr = Article.objects.filter(articleid__gt=1).values('title', 'link')
+    print('titleulr : ', titleulr)
+    제목temp["title"]과 링크inputUrl DB에 있는 데이터 조회해서 같은 값 있는지 체크
+    있으면 그 데이터 그대로 리턴
+    없으면 세이브
+    '''
 
     same = Article.objects.filter(Q(title=temp['title']) & Q(link=inputUrl) & Q(gubun='input'))
     if same:
@@ -41,6 +37,7 @@ def InputUrlCrawling(inputUrl):
 
     result = pred.modelPredictFunc(temp['title'], temp['contents'])# 예측 
     print('input result : ', result)
+    # DB Model에 매칭
     article = Article(title=temp["title"], reporter=temp["reporter"], press=temp["press"], link=inputUrl, publication_time=temp["time"], crawling_time=today, img=temp["img"], result=result, gubun='input')
     print(article.title)
     
@@ -48,21 +45,6 @@ def InputUrlCrawling(inputUrl):
     wordcloud.Wordcloud(temp['contents'], article.articleid) 
     
     return article
-
-
-
-    
-    # result = pred.modelPredictFunc(temp['title'], temp['contents'])# 예측 
-    # print('input result : ', result)
-    # article = Article(title=temp["title"], reporter=temp["reporter"], press=temp["press"], link=inputUrl, publication_time=temp["time"], crawling_time=today, img=temp["img"], result=result, gubun='input')
-    # print(article.title)
-    
-    # article.save() # 데이터 저장 실질적인 데이터 테스트 완료 후 주석 풀기
-
-    # wordcloud.Wordcloud(temp['contents'], article.articleid) 
-
-    # return article
-
 
 
 # 예측 
@@ -114,22 +96,19 @@ def viewtest(request) :
 
 
 def viewtest2(request) :
-    # texts = tools.get_title_contents("https://n.news.naver.com/article/648/0000011744?cds=news_media_pc&type=editn")
-    # text = texts["contents"] # 내용 값만 변수에 저장
-    # uri = wordcloud.Wordcloud(text) # 이미지 리턴
-    # print(len(uri))
+    '''
+    texts = tools.get_title_contents("https://n.news.naver.com/article/648/0000011744?cds=news_media_pc&type=editn")
+    text = texts["contents"] # 내용 값만 변수에 저장
+    uri = wordcloud.Wordcloud(text) # 이미지 리턴
+    print(len(uri))
 
-    # return HttpResponse(uri)
-    # # return render(request, 'wordcloudgen/cloud_gen.html', uri) # test용 http 따로 만듦. 
-    # # return HttpResponse('test2')
+    return HttpResponse(uri)
+    return render(request, 'wordcloudgen/cloud_gen.html', uri) # test용 http 따로 만듦. 
+    return HttpResponse('test2')
+    '''
     datilyCrawling()
 
     return HttpResponse('gg')
-
-
-
-
-
 
 
 
@@ -141,18 +120,9 @@ def wordcloudtest(request):
     context = {'img': b64}
     render(request, 'hello/temp.html', context)
 
-    # wc = WordCloud(width=400, height=400, scale=2.0, max_font_size=250, font_path="C:/venvs/final/wslFinal/finalProject/article/ditAPI/BMDOHYEON_ttf.ttf")
-    # gen = wc.generate_from_frequencies(c)
-    # plt.figure()
-    # plt.imshow(gen)
-    # args = {'image': plt.imshow(gen)}
-    # print(len(uri))
-
-    # render(request, 'hello/temp.html', args)
 
 
-
-# ------- 아래부터 함수 추가하시면 됩니다. 
+# ------- 아래부터 Front Part 함수 
 
 from django.template import loader
 from django.http import JsonResponse

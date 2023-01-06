@@ -2,9 +2,6 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 from collections import Counter
 from konlpy.tag import Okt
-import io
-import urllib, base64
-# from fontTools.ttLib import TTFont
 import matplotlib.pyplot as plt
 import os
 from pathlib import Path
