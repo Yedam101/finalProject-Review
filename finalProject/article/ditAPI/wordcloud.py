@@ -33,19 +33,3 @@ def Wordcloud(context, key):
         #wc.to_file(f'static/article/media/{time}.png')
     plt.savefig(f'static/media/article/wcimg{key}.png')
     
-    #----------
-    # fig = plt.gcf()
-    # buf = io.BytesIO()
-    # fig.savefig(buf, format='png')
-    # buf.seek(0)
-    # string = base64.b64encode(buf.read())
-    # uri = 'data:image/png;charset=utf-8;base64,' + urllib.parse.quote(string)
-    # b64 = base64.b64encode(buf.getvalue()).decode()
-    # return b64
-    # return uri
-
-    # wc = WordCloud(width=400, height=400, scale=2.0, max_font_size=250, font_path="C:/venvs/final/wslFinal/finalProject/article/ditAPI/BMDOHYEON_ttf.ttf")
-    # gen = wc.generate_from_frequencies(c)
-    # plt.figure()
-    # plt.imshow(gen)
-

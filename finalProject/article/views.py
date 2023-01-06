@@ -19,7 +19,7 @@ from django.templatetags.static import static
 
 
 def index(request):
-    return HttpResponse("서버연결 극혐2")
+    return HttpResponse("서버연결2")
 
 # url to Crawling
 def InputUrlCrawling(inputUrl):
